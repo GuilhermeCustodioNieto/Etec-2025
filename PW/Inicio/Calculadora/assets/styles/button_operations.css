@@ -1,0 +1,21 @@
+.buttons {
+    border: 1px solid #d9d9d9;
+    height: 15rem;
+    display: grid;
+    background-color: #3a3939;
+}
+
+
+.operations *, .numbers *, .extra *{
+    width: 50px;
+    height: 50px;
+    background-color: rgb(118, 118, 118);
+    border: 50%;
+
+}
+
+.operations, .numbers, .extra{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
