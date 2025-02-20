@@ -50,6 +50,15 @@ function Calculator() {
     }
   }
 
+  function deleteOne() {
+      if(num !== 0){
+        const numToStr = String(num)
+        const numFormated = numToStr.replace(numToStr.charAt(numToStr.length - 1), '')
+        
+        setNum(Number(numFormated))
+      }
+  }
+
   return (
     <div>
       <Box m={5}></Box>
@@ -59,7 +68,7 @@ function Calculator() {
           <h1 className={styles.result}>{num}</h1>
           <button onClick={clear}>AC</button>
           <button onClick={changeSign}>+/-</button>
-          <button onClick={porcentage}>%</button>
+          <button onClick={deleteOne}>X</button>
           <button
             className={styles.orange}
             onClick={operatorHandler}
@@ -81,7 +90,7 @@ function Calculator() {
             onClick={operatorHandler}
             value={"X"}
           >
-            X
+            *
           </button>
           <button className={styles.gray} onClick={inputNum} value={4}>
             4
