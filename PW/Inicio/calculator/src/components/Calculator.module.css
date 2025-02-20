@@ -18,7 +18,7 @@ button:hover{
 }
 
 .orange {
-    background-color: #FF9500;
+    background-color: #2e2e2e;
     color: white;
 
 }
@@ -38,4 +38,8 @@ button:hover{
     justify-content: right;
     margin-right: 1em;
     font-size: 4em;
+}
+
+.deleteOne{
+    width: 160px;
 }

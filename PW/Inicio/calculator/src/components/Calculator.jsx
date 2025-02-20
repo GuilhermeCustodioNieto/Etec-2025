@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from "./Calculator.module.css";
 import Container from "@mui/material/Container";
 import { Box } from "@mui/material";
+
+
 function Calculator() {
   const [num, setNum] = useState(0);
   const [oldNum, setOldNum] = useState(0);
@@ -66,15 +68,18 @@ function Calculator() {
         <div className={styles.wrapper}>
           <Box m={12}></Box>
           <h1 className={styles.result}>{num}</h1>
-          <button onClick={clear}>AC</button>
-          <button onClick={changeSign}>+/-</button>
-          <button onClick={deleteOne}>X</button>
+          <button onClick={clear} className={styles.orange}>AC</button>
+          
+          
           <button
             className={styles.orange}
             onClick={operatorHandler}
             value={"/"}
           >
             /
+          </button>
+          <button onClick={deleteOne} className={`${styles.orange} ${styles.deleteOne}`}>
+          ⌫
           </button>
           <button className={styles.gray} onClick={inputNum} value={7}>
             7
@@ -90,7 +95,7 @@ function Calculator() {
             onClick={operatorHandler}
             value={"X"}
           >
-            *
+            X
           </button>
           <button className={styles.gray} onClick={inputNum} value={4}>
             4
