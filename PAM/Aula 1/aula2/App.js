@@ -9,9 +9,9 @@ export default function App() {
 
       <View>
         <Image
-        style={styles.imagem}
-        source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs731nqGflTclgoWmkvwzkzqmOXJ_j3emixw&s'}}>
-
+          style={styles.imagem}
+          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs731nqGflTclgoWmkvwzkzqmOXJ_j3emixw&s' }}>
+            
         </Image>
       </View>
       <StatusBar style="auto" />
@@ -30,9 +30,9 @@ const styles = StyleSheet.create({
     color: '#f00',
     fontSize: 20
   },
-    imagem:{
-        width:500,
-        height:500
-      },
-    
+  imagem: {
+    width: 500,
+    height: 500
+  },
+
 });
