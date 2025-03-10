@@ -16,19 +16,37 @@ function Calculator() {
   }
 
   function clear() {
-    setNum(0);
+    fetch("http://localhost:3000/calculator/clear")
+      .then((response) => response.json())
+      .then((data) => setNum(data.result));
   }
 
   function porcentage() {
-    setNum(num / 100);
+    fetch("http://localhost:3000/calculator/porcentage", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        num: num,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => setNum(data.result));
   }
 
   function changeSign() {
-    if (num > 0) {
-      setNum(-num);
-    } else {
-      setNum(Math.abs(num));
-    }
+    fetch("http://localhost:3000/calculator/changeSign", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        num: num,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => setNum(data.result));
   }
 
   function operatorHandler(e) {
@@ -39,15 +57,19 @@ function Calculator() {
   }
 
   function calculate() {
-    if (operator === "/") {
-      setNum(parseFloat(oldNum) / parseFloat(num));
-    } else if (operator === "X") {
-      setNum(parseFloat(oldNum) * parseFloat(num));
-    } else if (operator === "+") {
-      setNum(parseFloat(oldNum) + parseFloat(num));
-    } else if (operator === "-") {
-      setNum(parseFloat(oldNum) - parseFloat(num));
-    }
+    fetch("http://localhost:3000/calculator/calculate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        num1: oldNum,
+        num2: num,
+        operator: operator,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => setNum(data.result));
   }
 
   return (
