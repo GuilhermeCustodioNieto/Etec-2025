@@ -5,10 +5,10 @@ import { useRef } from "react";
 
 export default function App() {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Title> </Title>
       <Form></Form>
-    </ScrollView>
+    </View>
   );
 }
 
