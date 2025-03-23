@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from "./Calculator.module.css";
 import Container from "@mui/material/Container";
 import { Box } from "@mui/material";
+import { getApi, postApi } from "../service/CalculatorApi.service";
+
 function Calculator() {
   const [num, setNum] = useState(0);
   const [oldNum, setOldNum] = useState(0);
@@ -16,37 +18,15 @@ function Calculator() {
   }
 
   function clear() {
-    fetch("http://localhost:3000/calculator/clear")
-      .then((response) => response.json())
-      .then((data) => setNum(data.result));
+    setNum(getApi(`clear`));
   }
 
   function porcentage() {
-    fetch("http://localhost:3000/calculator/porcentage", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        num: num,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => setNum(data.result));
+    setNum(postApi("porcentage", { num: num }));
   }
 
   function changeSign() {
-    fetch("http://localhost:3000/calculator/changeSign", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        num: num,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => setNum(data.result));
+    setNum(postApi("changeSign", { num: num }));
   }
 
   function operatorHandler(e) {
@@ -57,19 +37,9 @@ function Calculator() {
   }
 
   function calculate() {
-    fetch("http://localhost:3000/calculator/calculate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        num1: oldNum,
-        num2: num,
-        operator: operator,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => setNum(data.result));
+    setNum(
+      postApi("calculate", { num1: oldNum, num2: num, operator: operator })
+    );
   }
 
   return (
