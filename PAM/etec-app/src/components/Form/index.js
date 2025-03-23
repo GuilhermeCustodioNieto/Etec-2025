@@ -20,6 +20,16 @@ function index() {
     return;
   }
 
+  function defineMessage() {
+    if (media < 4) {
+      setMessageMedia(`Você foi reprovado`);
+    } else if (media > 4 && media < 6) {
+      setMessageMedia(`Você está de recuperação`);
+    } else {
+      setMessageMedia(`Você foi aprovado`);
+    }
+  }
+
   function validationMedia() {
     if (nota1 != null && nota2 != null && nota3 != null && nota4 != null) {
       MediaCalculator();
@@ -27,8 +37,8 @@ function index() {
       setNota2(null);
       setNota3(null);
       setNota4(null);
-      setMessageMedia(`Sua media é igual a:`);
       setTextButton("Calcular novamente");
+      defineMessage();
 
       return;
     }
