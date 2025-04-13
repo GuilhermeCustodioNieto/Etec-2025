@@ -1,15 +1,19 @@
-.banner {
+.banner{
+
+    width: 100vw;
+    height: 70.4vh;
     background: url('/public/Banner.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    width: 100vw;
-    height: 70.4vh;
-    color: #fff;
+
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    flex-direction: column;
+    
+    
+    color: #fff;
 }
 
 .banner *{
@@ -28,7 +32,7 @@
     border: 2px solid #fff;
     padding: 15px 50px;
     margin-top: 40px;
-    transition: 0.5s;
+    
 }
 
 .banner a:hover {

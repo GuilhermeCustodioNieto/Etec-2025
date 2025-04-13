@@ -1,14 +1,15 @@
-import React from "react";
+import { React, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/Banner";
 import FirstFase from "../../components/FirstFase/FirstFase";
 import QuarterFinals from "../../components/QuarterFinals/QuarterFinals";
-//import FirstFase from "../../components/FirstFase/FirstFase";
+
 import styles from "./TablePage.module.css";
 import Semifinal from "../../components/Semifinal/Semifinal";
 import Final from "../../components/Final/Final";
 import Footer from "../../components/Footer/Footer";
 import Table from "../../services/Table.json";
+import ScrollReveal from "scrollreveal";
 
 function TablePage() {
   function formatTeams(jogo) {
@@ -17,6 +18,20 @@ function TablePage() {
       teamB: jogo.teams.teamB,
     };
   }
+
+  useEffect(() => {
+    const slideUp = {
+      distance: "150%",
+      origin: "bottom",
+      opacity: null,
+      reset: true,
+    };
+
+    ScrollReveal().reveal(
+      "h1, h2, h3, p, button, table, #button_banner",
+      slideUp
+    );
+  }, []);
 
   return (
     <div>

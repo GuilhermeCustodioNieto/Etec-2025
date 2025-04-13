@@ -8,7 +8,9 @@ function Banner() {
         Veja o melhor conteúdo sobre o futebol brasileiro sem preocupações com
         nosso site!
       </p>
-      <a href="#primeira-fase">VER MAIS</a>
+      <a href="#primeira-fase" id="button_banner">
+        VER MAIS
+      </a>
     </div>
   );
 }

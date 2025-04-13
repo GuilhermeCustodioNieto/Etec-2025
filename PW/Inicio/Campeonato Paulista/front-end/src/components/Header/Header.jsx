@@ -4,7 +4,7 @@ import styles from "./Header.module.css";
 function Header() {
   return (
     <header className={styles.header}>
-      <a href="/">
+      <a href="/" id="logo">
         <img src="/public/Logo.png" alt="Logo" />
       </a>
 
