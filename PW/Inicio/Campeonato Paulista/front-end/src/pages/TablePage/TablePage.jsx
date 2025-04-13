@@ -27,10 +27,7 @@ function TablePage() {
       reset: true,
     };
 
-    ScrollReveal().reveal(
-      "h1, h2, h3, p, button, table, #button_banner",
-      slideUp
-    );
+    ScrollReveal().reveal("h1, h2, h3, p, button, #button_banner", slideUp);
   }, []);
 
   return (
