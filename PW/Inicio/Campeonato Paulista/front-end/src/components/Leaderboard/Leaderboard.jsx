@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Leaderboard.module.css";
 
-function Leaderboard({ group }) {
+function Leaderboard({ group, times }) {
   return (
     <div className={styles.leaderboard}>
       <h3>{group}</h3>
@@ -18,34 +18,26 @@ function Leaderboard({ group }) {
           </tr>
         </thead>
 
-        {/* {data.map((time) => {
-          return (
-            <tr>
-              <td>{time.classificacao}</td>
-              <td>{}</td>
-            </tr>
-          );
-        })} */}
-
         <tbody>
-          <tr className={styles.leaderboard_line}>
-            <td>1</td>
-            <td className={styles.leaderboard_line_gray_column}>Corinthians</td>
-            <td>28</td>
-            <td className={styles.leaderboard_line_gray_column}>28</td>
-            <td>17</td>
-            <td className={styles.leaderboard_line_gray_column}>6</td>
-            <td>0</td>
-          </tr>
-          <tr className={styles.leaderboard_line}>
-            <td>1</td>
-            <td className={styles.leaderboard_line_gray_column}>Corinthians</td>
-            <td>28</td>
-            <td className={styles.leaderboard_line_gray_column}>28</td>
-            <td>17</td>
-            <td className={styles.leaderboard_line_gray_column}>6</td>
-            <td>0</td>
-          </tr>
+          {times.map((time, index) => {
+            return (
+              <tr className={styles.leaderboard_line} key={index}>
+                <td>{time.classificacao}</td>
+                <td className={styles.leaderboard_line_gray_column}>
+                  {time.time}
+                </td>
+                <td>{time.pontuacao}</td>
+                <td className={styles.leaderboard_line_gray_column}>
+                  {time.jogos}
+                </td>
+                <td>{time.vitorias}</td>
+                <td className={styles.leaderboard_line_gray_column}>
+                  {time.empates}
+                </td>
+                <td>{time.derrotas}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
