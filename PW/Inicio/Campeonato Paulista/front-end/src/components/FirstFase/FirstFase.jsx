@@ -1,33 +1,17 @@
 import React from "react";
 import styles from "./FirstFase.module.css";
+import Leaderboard from "../Leaderboard/Leaderboard";
 
 function FirstFase() {
   return (
-    <div className={styles.first_fase_container}>
+    <div className={styles.first_fase} id="primeira-fase">
       <h2>Primeira Fase</h2>
 
       <div>
-        <h3>GRUPO A</h3>
-        <table>
-          <tr>
-            <th>Classificação</th>
-            <th>Time</th>
-            <th>P</th>
-            <th>J</th>
-            <th>V</th>
-            <th>E</th>
-            <th>D</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Corinthians</td>
-            <td>27</td>
-            <td>12</td>
-            <td>8</td>
-            <td>3</td>
-            <td>1</td>
-          </tr>
-        </table>
+        <Leaderboard group="Grupo A"></Leaderboard>
+        <Leaderboard group="Grupo B"></Leaderboard>
+        <Leaderboard group="Grupo C"></Leaderboard>
+        <Leaderboard group="Grupo D"></Leaderboard>
       </div>
     </div>
   );

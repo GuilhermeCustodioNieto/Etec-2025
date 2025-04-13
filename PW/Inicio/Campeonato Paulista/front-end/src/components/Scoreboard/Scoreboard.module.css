@@ -1,0 +1,11 @@
+.scoreboard {
+    width: 40.625vw;
+    height: 5.6vh;
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}

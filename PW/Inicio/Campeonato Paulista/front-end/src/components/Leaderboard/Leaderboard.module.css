@@ -1,0 +1,44 @@
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+
+.leaderboard h3{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 20px 0px 10px 0px;
+}
+
+.leaderboard table {
+    color: #000;
+    background-color: #DDDDDD;
+    border-collapse: collapse;
+    width: 46.005vw;
+    min-height: 18.185vh;
+    border-radius: 5px;
+}
+
+.leaderboard_line th, .leaderboard_line td {
+    height: 50px;
+    border-bottom: 1.5px solid #000;
+    text-align: left;
+    font-size: 26px;
+    
+}
+
+.leaderboard_line th, .leaderboard_line td {
+    padding: 0px 0px 0px 20px;
+}
+
+.leaderboard_line th {
+    font-weight: 400;
+}
+
+.leaderboard_line_gray_column {
+    background-color: #F2F2F2;
+}

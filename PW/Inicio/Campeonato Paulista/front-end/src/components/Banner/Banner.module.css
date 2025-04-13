@@ -1,0 +1,39 @@
+.banner {
+    background: url('/public/Banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100vw;
+    height: 70.4vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.banner *{
+    margin: 0px 20vw;
+}
+
+.banner p{
+    font-size: 25px;
+    width: 21.25vw;
+}
+
+.banner a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    border: 2px solid #fff;
+    padding: 15px 50px;
+    margin-top: 40px;
+    transition: 0.5s;
+}
+
+.banner a:hover {
+    transition: 0.5s;
+    padding: 20px 60px;
+    font-size: 21px;
+    
+}

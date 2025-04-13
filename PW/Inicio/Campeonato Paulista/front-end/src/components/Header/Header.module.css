@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 9.6vh;
+    border-bottom: 2px solid #2ADFB8;
+}
+
+.header h1, .header h1 span{
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+    
+}
+
+.header h1 span {
+    color: #2ADFB8;
+}
+
+.header a{
+    position: absolute;
+    left: 0;
+    margin: 0px 0px 0px 50px;
+}
+
+.header a img{
+    
+    width: 70px;
+    height: 70px;
+}
