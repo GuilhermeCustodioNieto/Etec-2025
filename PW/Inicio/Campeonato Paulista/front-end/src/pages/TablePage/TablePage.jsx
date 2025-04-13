@@ -11,15 +11,35 @@ import Footer from "../../components/Footer/Footer";
 import Table from "../../services/Table.json";
 
 function TablePage() {
+  function formatTeams(jogo) {
+    return {
+      teamA: jogo.teams.teamA,
+      teamB: jogo.teams.teamB,
+    };
+  }
+
   return (
     <div>
       <Header></Header>
       <Banner></Banner>
       <div className={styles.tables}>
         <FirstFase data={Table["primeira-fase"]}></FirstFase>
-        <QuarterFinals></QuarterFinals>
-        <Semifinal></Semifinal>
-        <Final></Final>
+        <QuarterFinals
+          data={Table["quartas-de-final"]}
+          formatter={formatTeams}
+        ></QuarterFinals>
+        <Semifinal
+          data={Table["semi-final"]}
+          formatter={formatTeams}
+        ></Semifinal>
+        <Final data={Table["final"]} formatter={formatTeams}></Final>
+
+        <div className={styles.winner}>
+          {/* <img src="/public/trofeu.png" alt="Trofeu icon" /> */}
+          <h3>
+            Vencedor: <span>Corinthians</span>
+          </h3>
+        </div>
       </div>
       <Footer></Footer>
     </div>

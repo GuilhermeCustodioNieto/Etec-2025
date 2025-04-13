@@ -2,18 +2,15 @@ import React from "react";
 import styles from "./Semifinal.module.css";
 import Scoreboard from "../Scoreboard/Scoreboard";
 
-function Semifinal() {
+function Semifinal({ data, formatter }) {
   return (
     <div className={styles.semi_final}>
       <h2>SemiFinal</h2>
 
       <div>
-        <Scoreboard
-          teams={{
-            teamA: { name: "Corinthians", score: 3 },
-            teamB: { name: "Mirassol", score: 0 },
-          }}
-        ></Scoreboard>
+        {data.map((jogo, index) => {
+          return <Scoreboard teams={formatter(jogo)} key={index}></Scoreboard>;
+        })}
       </div>
     </div>
   );

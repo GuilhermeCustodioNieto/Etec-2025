@@ -9,3 +9,12 @@
     align-items: center;
     font-size: 30px;
 }
+
+.scoreboard *{
+    margin: 0px 20px;    
+}
+
+.scoreboard_team_name {
+    width: 15vw;
+    text-align: center;
+}

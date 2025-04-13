@@ -8,11 +8,12 @@ function FirstFase({ data }) {
       <h2>Primeira Fase</h2>
 
       <div>
-        {data.map((group) => {
+        {data.map((group, index) => {
           return (
             <Leaderboard
               group={`Grupo ${group.grupo}`}
               times={group.times}
+              key={index}
             ></Leaderboard>
           );
         })}
