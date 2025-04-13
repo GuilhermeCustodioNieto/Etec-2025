@@ -1,0 +1,26 @@
+.first_fase_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+
+}
+
+.first_fase_container h2::after{
+
+    background-color: black;
+
+}
+
+.first_fase_container div {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+    width: 70vw;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
