@@ -19,16 +19,18 @@ function TablePage() {
     };
   }
 
-  useEffect(() => {
+  /**
+   * useEffect(() => {
     const slideUp = {
-      distance: "150%",
+      distance: "125%",
       origin: "bottom",
       opacity: null,
-      reset: true,
+      reset: false,
     };
 
     ScrollReveal().reveal("h1, h2, h3, p, button, #button_banner", slideUp);
   }, []);
+   */
 
   return (
     <div>

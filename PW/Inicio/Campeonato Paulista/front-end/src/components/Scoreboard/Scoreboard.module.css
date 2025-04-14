@@ -1,5 +1,5 @@
 .scoreboard {
-    width: 40.625vw;
+    width: 70.625vw;
     height: 5.6vh;
     background-color: #fff;
     color: #000;
@@ -15,6 +15,6 @@
 }
 
 .scoreboard_team_name {
-    width: 15vw;
+    width: 27vw;
     text-align: center;
 }
