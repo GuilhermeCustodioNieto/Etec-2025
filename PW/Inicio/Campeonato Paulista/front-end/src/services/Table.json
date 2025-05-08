@@ -3,91 +3,268 @@
     {
       "grupo": "A",
       "times": [
-        { "time": "Corinthians", "classificacao": 1, "pontuacao": 27, "jogos": 12, "vitorias": 8, "empates": 3, "derrotas": 1 },
-        { "time": "Mirassol", "classificacao": 2, "pontuacao": 16, "jogos": 12, "vitorias": 5, "empates": 1, "derrotas": 6 },
-        { "time": "Botafogo-SP", "classificacao": 3, "pontuacao": 11, "jogos": 12, "vitorias": 2, "empates": 5, "derrotas": 5 },
-        { "time": "Inter de Limeira", "classificacao": 4, "pontuacao": 7, "jogos": 12, "vitorias": 0, "empates": 7, "derrotas": 5 }
+        {
+          "time": "Corinthians",
+          "classificacao": 1,
+          "pontuacao": 27,
+          "jogos": 12,
+          "vitorias": 8,
+          "empates": 3,
+          "derrotas": 1,
+          "porcentagem": "68%"
+        },
+        {
+          "time": "Mirassol",
+          "classificacao": 2,
+          "pontuacao": 16,
+          "jogos": 12,
+          "vitorias": 5,
+          "empates": 1,
+          "derrotas": 6
+        },
+        {
+          "time": "Botafogo-SP",
+          "classificacao": 3,
+          "pontuacao": 11,
+          "jogos": 12,
+          "vitorias": 2,
+          "empates": 5,
+          "derrotas": 5
+        },
+        {
+          "time": "Inter de Limeira",
+          "classificacao": 4,
+          "pontuacao": 7,
+          "jogos": 12,
+          "vitorias": 0,
+          "empates": 7,
+          "derrotas": 5
+        }
       ]
     },
     {
       "grupo": "B",
       "times": [
-        { "time": "Santos", "classificacao": 1, "pontuacao": 18, "jogos": 12, "vitorias": 5, "empates": 3, "derrotas": 4 },
-        { "time": "Red Bull Bragantino", "classificacao": 2, "pontuacao": 17, "jogos": 12, "vitorias": 5, "empates": 2, "derrotas": 5 },
-        { "time": "Guarani", "classificacao": 3, "pontuacao": 13, "jogos": 12, "vitorias": 3, "empates": 4, "derrotas": 5 },
-        { "time": "Portuguesa", "classificacao": 4, "pontuacao": 13, "jogos": 12, "vitorias": 2, "empates": 7, "derrotas": 3 }
+        {
+          "time": "Santos",
+          "classificacao": 1,
+          "pontuacao": 18,
+          "jogos": 12,
+          "vitorias": 5,
+          "empates": 3,
+          "derrotas": 4
+        },
+        {
+          "time": "Red Bull Bragantino",
+          "classificacao": 2,
+          "pontuacao": 17,
+          "jogos": 12,
+          "vitorias": 5,
+          "empates": 2,
+          "derrotas": 5
+        },
+        {
+          "time": "Guarani",
+          "classificacao": 3,
+          "pontuacao": 13,
+          "jogos": 12,
+          "vitorias": 3,
+          "empates": 4,
+          "derrotas": 5
+        },
+        {
+          "time": "Portuguesa",
+          "classificacao": 4,
+          "pontuacao": 13,
+          "jogos": 12,
+          "vitorias": 2,
+          "empates": 7,
+          "derrotas": 3
+        }
       ]
     },
     {
       "grupo": "C",
       "times": [
-        { "time": "São Paulo", "classificacao": 1, "pontuacao": 19, "jogos": 12, "vitorias": 5, "empates": 4, "derrotas": 3 },
-        { "time": "Novorizontino", "classificacao": 2, "pontuacao": 18, "jogos": 12, "vitorias": 4, "empates": 6, "derrotas": 2 },
-        { "time": "Noroeste", "classificacao": 3, "pontuacao": 8, "jogos": 12, "vitorias": 1, "empates": 5, "derrotas": 6 },
-        { "time": "Água Santa", "classificacao": 4, "pontuacao": 7, "jogos": 12, "vitorias": 1, "empates": 4, "derrotas": 7 }
+        {
+          "time": "São Paulo",
+          "classificacao": 1,
+          "pontuacao": 19,
+          "jogos": 12,
+          "vitorias": 5,
+          "empates": 4,
+          "derrotas": 3
+        },
+        {
+          "time": "Novorizontino",
+          "classificacao": 2,
+          "pontuacao": 18,
+          "jogos": 12,
+          "vitorias": 4,
+          "empates": 6,
+          "derrotas": 2
+        },
+        {
+          "time": "Noroeste",
+          "classificacao": 3,
+          "pontuacao": 8,
+          "jogos": 12,
+          "vitorias": 1,
+          "empates": 5,
+          "derrotas": 6
+        },
+        {
+          "time": "Água Santa",
+          "classificacao": 4,
+          "pontuacao": 7,
+          "jogos": 12,
+          "vitorias": 1,
+          "empates": 4,
+          "derrotas": 7
+        }
       ]
     },
     {
       "grupo": "D",
       "times": [
-        { "time": "São Bernardo", "classificacao": 1, "pontuacao": 23, "jogos": 12, "vitorias": 7, "empates": 2, "derrotas": 3 },
-        { "time": "Palmeiras", "classificacao": 2, "pontuacao": 23, "jogos": 12, "vitorias": 6, "empates": 5, "derrotas": 1 },
-        { "time": "Ponte Preta", "classificacao": 3, "pontuacao": 22, "jogos": 12, "vitorias": 6, "empates": 4, "derrotas": 2 },
-        { "time": "Velo Clube", "classificacao": 4, "pontuacao": 13, "jogos": 12, "vitorias": 3, "empates": 4, "derrotas": 5 }
+        {
+          "time": "São Bernardo",
+          "classificacao": 1,
+          "pontuacao": 23,
+          "jogos": 12,
+          "vitorias": 7,
+          "empates": 2,
+          "derrotas": 3
+        },
+        {
+          "time": "Palmeiras",
+          "classificacao": 2,
+          "pontuacao": 23,
+          "jogos": 12,
+          "vitorias": 6,
+          "empates": 5,
+          "derrotas": 1
+        },
+        {
+          "time": "Ponte Preta",
+          "classificacao": 3,
+          "pontuacao": 22,
+          "jogos": 12,
+          "vitorias": 6,
+          "empates": 4,
+          "derrotas": 2
+        },
+        {
+          "time": "Velo Clube",
+          "classificacao": 4,
+          "pontuacao": 13,
+          "jogos": 12,
+          "vitorias": 3,
+          "empates": 4,
+          "derrotas": 5
+        }
       ]
     }
   ],
   "quartas-de-final": [
     {
       "teams": {
-        "teamA": { "name": "Corinthians", "score": 3 },
-        "teamB": { "name": "Mirassol", "score": 0 }
+        "teamA": {
+          "name": "Corinthians",
+          "score": 3
+        },
+        "teamB": {
+          "name": "Mirassol",
+          "score": 0
+        }
       }
     },
     {
       "teams": {
-        "teamA": { "name": "Santos", "score": 1 },
-        "teamB": { "name": "Red Bull Bragantino", "score": 0 }
+        "teamA": {
+          "name": "Santos",
+          "score": 1
+        },
+        "teamB": {
+          "name": "Red Bull Bragantino",
+          "score": 0
+        }
       }
     },
     {
       "teams": {
-        "teamA": { "name": "São Paulo", "score": 2 },
-        "teamB": { "name": "Novorizontino", "score": 1 }
+        "teamA": {
+          "name": "São Paulo",
+          "score": 2
+        },
+        "teamB": {
+          "name": "Novorizontino",
+          "score": 1
+        }
       }
     },
     {
       "teams": {
-        "teamA": { "name": "Palmeiras", "score": 2 },
-        "teamB": { "name": "São Bernardo", "score": 1 }
+        "teamA": {
+          "name": "Palmeiras",
+          "score": 2
+        },
+        "teamB": {
+          "name": "São Bernardo",
+          "score": 1
+        }
       }
     }
   ],
   "semi-final": [
     {
       "teams": {
-        "teamA": { "name": "Corinthians", "score": 2 },
-        "teamB": { "name": "Santos", "score": 1 }
+        "teamA": {
+          "name": "Corinthians",
+          "score": 2
+        },
+        "teamB": {
+          "name": "Santos",
+          "score": 1
+        }
       }
     },
     {
       "teams": {
-        "teamA": { "name": "Palmeiras", "score": 3 },
-        "teamB": { "name": "São Paulo", "score": 2 }
+        "teamA": {
+          "name": "Palmeiras",
+          "score": 3
+        },
+        "teamB": {
+          "name": "São Paulo",
+          "score": 2
+        }
       }
     }
   ],
   "final": [
     {
       "teams": {
-        "teamA": { "name": "Corinthians", "score": 1 },
-        "teamB": { "name": "Palmeiras", "score": 0 }
+        "teamA": {
+          "name": "Corinthians",
+          "score": 1
+        },
+        "teamB": {
+          "name": "Palmeiras",
+          "score": 0
+        }
       }
     },
     {
       "teams": {
-        "teamA": { "name": "Corinthians", "score": 0 },
-        "teamB": { "name": "Palmeiras", "score": 0 }
+        "teamA": {
+          "name": "Corinthians",
+          "score": 0
+        },
+        "teamB": {
+          "name": "Palmeiras",
+          "score": 0
+        }
       }
     }
   ]

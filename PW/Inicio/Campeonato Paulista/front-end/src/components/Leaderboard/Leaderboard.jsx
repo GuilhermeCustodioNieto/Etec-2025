@@ -2,6 +2,20 @@ import React from "react";
 import styles from "./Leaderboard.module.css";
 
 function Leaderboard({ group, times }) {
+  function calculatatePercentage(games, totalPoints) {
+    let possiblePoints = games * 3;
+    return (totalPoints / possiblePoints) * 100;
+  }
+  times.map((time) => {
+    console.log(time);
+
+    time.porcentagem = calculatatePercentage(
+      time.jogos,
+      time.pontuacao
+    ).toFixed(0);
+  });
+  times = times.sort((a, b) => b.porcentagem - a.porcentagem);
+
   return (
     <div className={styles.leaderboard}>
       <h3>{group}</h3>
@@ -15,6 +29,7 @@ function Leaderboard({ group, times }) {
             <th>V</th>
             <th className={styles.leaderboard_line_gray_column}>E</th>
             <th>D</th>
+            <th className={styles.leaderboard_line_gray_column}>%</th>
           </tr>
         </thead>
 
@@ -35,6 +50,9 @@ function Leaderboard({ group, times }) {
                   {time.empates}
                 </td>
                 <td>{time.derrotas}</td>
+                <td className={styles.leaderboard_line_gray_column}>
+                  {time.porcentagem} %
+                </td>
               </tr>
             );
           })}

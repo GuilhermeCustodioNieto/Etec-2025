@@ -1,0 +1,3 @@
+- Fazer coluna de porcentagem no leaderboard *
+- Fazer cálculo de porcentagens automaticmente *
+- Fazer algoritmo de ordenação das linhas
