@@ -6,7 +6,7 @@ const calculatorRouter = require('./controller/CalculatorController.js')
 const PORT = 3000
 
 app.use(express.json())
-app.use(cors({origin: 'http://localhost:3001'}))
+app.use(cors({origin: 'http://localhost:3002'}))
 
 app.use('/calculator', calculatorRouter)
 

@@ -17,8 +17,9 @@ function Calculator() {
     }
   }
 
-  function clear() {
-    setNum(getApi(`clear`));
+  async function clear() {
+    const result = await getApi("clear");
+    setNum(result);
   }
 
   function porcentage() {
