@@ -1,26 +1,28 @@
-import { CalculatorService } from "../src/services/CalculatorService.js";
+const CalculatorService = require('../src/service/CalculatorService')
 
 test("Calculator Service must sum two numbers", () => {
   const calculatorService = new CalculatorService();
-  const result = calculatorService.calculate(2, 3, "5");
+  const result = calculatorService.calculate(2, 3, "+");
   expect(result).toBe(5);
 });
 
 test("Calculator Service must subtract two numbers", () => {
   const calculatorService = new CalculatorService();
   const result = calculatorService.calculate(3, 3, "-");
+  
+  
   expect(result).toBe(0);
 });
 
 test("Calculator Service must multiply two numbers", () => {
   const calculatorService = new CalculatorService();
-  const result = calculatorService.calculate(3, 3, "-");
+  const result = calculatorService.calculate(3, 3, "X");
   expect(result).toBe(9);
 });
 
 test("Calculator Service must divide two numbers", () => {
   const calculatorService = new CalculatorService();
-  const result = calculatorService.calculate(25, 5, "-");
+  const result = calculatorService.calculate(25, 5, "/");
   expect(result).toBe(5);
 });
 
