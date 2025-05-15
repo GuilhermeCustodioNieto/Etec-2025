@@ -1,4 +1,4 @@
-const CalculatorService = require('../src/service/CalculatorService')
+const CalculatorService = require("../src/service/CalculatorService");
 
 test("Calculator Service must sum two numbers", () => {
   const calculatorService = new CalculatorService();
@@ -9,8 +9,7 @@ test("Calculator Service must sum two numbers", () => {
 test("Calculator Service must subtract two numbers", () => {
   const calculatorService = new CalculatorService();
   const result = calculatorService.calculate(3, 3, "-");
-  
-  
+
   expect(result).toBe(0);
 });
 
@@ -28,7 +27,42 @@ test("Calculator Service must divide two numbers", () => {
 
 test("Calculator Service should return an error if the number one is empty", () => {
   const calculatorService = new CalculatorService();
-  expect(calculatorService.calculate(5, "-")).toThrow(
-    "The first number is required"
+  expect(() => calculatorService.calculate(5, "-")).toThrow(
+    "The values are not defined"
+  );
+});
+
+test("Calculator Service should return an error if the number two is empty", () => {
+  const calculatorService = new CalculatorService();
+  expect(() => calculatorService.calculate(5, "+")).toThrow(
+    "The values are not defined"
+  );
+});
+
+test("Calculator Service should return an error if the number one and the number two are empty", () => {
+  const calculatorService = new CalculatorService();
+  expect(() => calculatorService.calculate("+")).toThrow(
+    "The values are not defined"
+  );
+});
+
+test("Calculator Service should return an error if the operator is empty", () => {
+  const calculatorService = new CalculatorService();
+  expect(() => calculatorService.calculate(5, 5)).toThrow(
+    "The values are not defined"
+  );
+});
+
+test("Calculator Service should return an error if the operator is not valid", () => {
+  const calculatorService = new CalculatorService();
+  expect(() => calculatorService.calculate(5, 5, "a")).toThrow(
+    "The operator is not valid"
+  );
+});
+
+test("Calculator Service should  return an error if the operatio is a division by zero", () => {
+  const calculatorService = new CalculatorService();
+  expect(() => calculatorService.calculate(5, 0, "/")).toThrow(
+    "You can`t divide by zero"
   );
 });
