@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/Banner";
 import FirstFase from "../../components/FirstFase/FirstFase";
@@ -38,6 +38,8 @@ function TablePage() {
       <Banner></Banner>
       <div className={styles.tables}>
         <FirstFase data={Table["primeira-fase"]}></FirstFase>
+      </div>
+      <div className={styles.tables1}>
         <QuarterFinals
           data={Table["quartas-de-final"]}
           formatter={formatTeams}
@@ -47,14 +49,12 @@ function TablePage() {
           formatter={formatTeams}
         ></Semifinal>
         <Final data={Table["final"]} formatter={formatTeams}></Final>
-
+      </div>
         <div className={styles.winner}>
-          {/* <img src="/public/trofeu.png" alt="Trofeu icon" /> */}
           <h3>
             Vencedor: <span>Corinthians</span>
           </h3>
         </div>
-      </div>
       <Footer></Footer>
     </div>
   );

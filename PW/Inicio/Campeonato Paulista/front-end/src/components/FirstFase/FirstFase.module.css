@@ -1,11 +1,9 @@
 .first_fase {
-    color: #2ADFB8;
-    font-size: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    background-color: #CFF2E4;
 }
 
 .first_fase div div {

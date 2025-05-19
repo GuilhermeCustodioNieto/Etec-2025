@@ -5,7 +5,11 @@ import Scoreboard from "../Scoreboard/Scoreboard";
 function Final({ data, formatter }) {
   return (
     <div className={styles.final}>
-      <h2>Final</h2>
+      <div className={styles.boxTitulo}>
+                <div className={styles.box}>
+                  <h2>Final</h2>
+                </div>
+            </div>
 
       <div>
         {data.map((jogo, index) => {

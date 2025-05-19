@@ -3,30 +3,32 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 9.6vh;
-    border-bottom: 2px solid #2ADFB8;
+    height: 80px;
+    width: 100%;
+    padding: 20px;
+    background-color: #073728;
 }
 
-.header h1, .header h1 span{
-    color: #fff;
-    font-weight: bold;
-    font-size: 30px;
-    
+.navHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
 }
 
-.header h1 span {
-    color: #2ADFB8;
+.navItem{
+    font-family: 'Itim', cursive;
+    font-size: 22px;
+    text-decoration: none;
+    background: linear-gradient(90deg, #FFFFFA, #DDDDDD, #D9D9D9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: .5s;
 }
 
-.header a{
-    position: absolute;
-    left: 0;
-    margin: 0px 0px 0px 50px;
-}
-
-.header a img{
-    
-    width: 3vw;
-    height: auto;
+.navItem:hover{
+    text-decoration: 3px underline #0B6E4F;
 }

@@ -18,7 +18,7 @@ function Leaderboard({ group, times }) {
 
   return (
     <div className={styles.leaderboard}>
-      <h3>{group}</h3>
+      <h3 className={styles.titulo}>{group}</h3>
       <table>
         <thead>
           <tr className={styles.leaderboard_line}>
