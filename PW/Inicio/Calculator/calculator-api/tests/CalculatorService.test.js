@@ -66,3 +66,22 @@ test("Calculator Service should  return an error if the operatio is a division b
     "You can`t divide by zero"
   );
 });
+
+test("Calculator Service should return 10% of 100", () => {
+  const calculatorService = new CalculatorService();
+  const result = calculatorService.porcentage(100);
+  expect(result).toBe(1);
+});
+
+test("The Calculator Service should return an error if the number is empty", () => {
+  const calculatorService = new CalculatorService();
+  expect(() => calculatorService.porcentage()).toThrow(
+    "The value is not defined"
+  );
+});
+
+test("The Calculator Service should return zero", () => {
+  const calculatorService = new CalculatorService();
+  const result = calculatorService.clear();
+  expect(result).toBe(0);
+});

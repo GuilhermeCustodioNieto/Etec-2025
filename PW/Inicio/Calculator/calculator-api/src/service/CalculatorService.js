@@ -1,9 +1,5 @@
 class CalculatorService {
   calculate(num1, num2, operator) {
-    console.log("num1", num1);
-    console.log("num2", isNaN(num2));
-    console.log("operator", operator);
-
     if (num1 == undefined || num2 == undefined || operator == undefined) {
       throw new Error("The values are not defined");
     }
@@ -48,7 +44,19 @@ class CalculatorService {
   }
 
   porcentage(num) {
-    return num / 100;
+    if (num == undefined) {
+      throw new Error("The value is not defined");
+    }
+
+    if (num == null) {
+      throw new Error("The value is not defined");
+    }
+
+    try {
+      return num / 100;
+    } catch (error) {
+      throw new Error("An error occurred while calculating the percentage");
+    }
   }
 
   clear() {
