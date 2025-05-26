@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap"
+      rel="stylesheet"
+    />
     <title>Etec - CEP</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <main>
-        <section>
-            <div>
-                <form>
-                    <div>
-                        <span>Digite seu CEP:</span>
-                        <input type="text" placeholder="00000-000">
+      <section class="main_container">
+        <div class="main_card">
+          <div>
+            <form class="form_container">
+              <div>
+                <span>Digite seu CEP:</span>
+                <input type="text" placeholder="00000-000" />
+              </div>
 
-                    </div>
+              <button type="submit">Buscar</button>
+            </form>
+          </div>
 
-                    <button type="submit">Buscar</button>
-                </form>
-            </div>
-
-            <div>
-                <div>
-                    <p>Rua:</p>
-                    <p>Rua:</p>/div>
-                </div>
-        </section>
-        <section>
-            <h1>Buscar meu endereço</h1>
-            <span>
-                <img src="./assets/img/map-icon.png" alt="Ícone de mapa">
-            </span>
-        </section>
+          <div>
+            <p>Rua:</p>
+            <p>Cidade:</p>
+            <p>Bairro:</p>
+            <p>Número:</p>
+          </div>
+        </div>
+      </section>
+      <section class="span_container">
+        <h1>Buscar meu endereço</h1>
+        <span>
+          <img src="./assets/img/map-icon.png" alt="Ícone de mapa" />
+        </span>
+      </section>
     </main>
-</body>
-
+  </body>
 </html>
