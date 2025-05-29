@@ -56,7 +56,7 @@ main {
   width: 33.854vw;
   height: 85vh;
   border-radius: 15px;
-  padding-top: 50px;
+  padding-top: 100px;
   
 }
 
@@ -81,7 +81,7 @@ main {
    text-align: center;
   line-height: 5vh;
   background-color: #D9D9D9;
-  border-color: rgba(95, 168, 211, 0.5);
+  border-color: #5FA8D3;
   border-style: solid;
   border-width: 1.5px;
   padding-top: 1vh;
@@ -89,6 +89,7 @@ main {
   font-size: 35px;
   font-weight: bold;
   margin-top: 5%;
+  box-shadow: 0px 0px 10px rgba(95, 168, 211, 0.5);
 }
 
 .form_container div input::placeholder {
@@ -122,6 +123,7 @@ main {
   border-radius: 15px;
   border: 1px solid #5FA8D3;
   margin-top: 20%;
+  cursor: pointer;
 
 }
 
@@ -129,7 +131,7 @@ main {
   font-size: 30px;
   font-weight: bold;
   color: #DEF1FF;
-  filter: drop-shadow(0px 6px 30px #ffffff);
+  
 }
 
 .span_container {
@@ -141,7 +143,7 @@ main {
   font-size: 30px;
   width: 30.312vw;
   height: 28vh;
-  margin-top: 10%;
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -155,5 +157,16 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-self: center;
+  align-items: center;
+  gap: 10%;
+}
+
+.span_container img {
+  width: 300px;
+}
+
+.span_container h1 {
+  font-size: 7.813vw;
+  color: #DEF1FF;
+  text-align: center;
 }
