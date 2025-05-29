@@ -17,11 +17,16 @@ button.addEventListener("click", (e) => {
     })
     .then((data) => {
       console.log(data);
-      document.getElementById("rua").innerHTML += " " + data.logradouro;
-      document.getElementById("bairro").innerHTML += " " + data.bairro;
-      document.getElementById("cidade").innerHTML += " " + data.localidade;
-      document.getElementById("numero").innerHTML += " " + data.uf;
-      console.log(data);
+      console.log(data.complemento == "");
+
+      document.getElementById("rua").innerHTML +=
+        " " + (data.logradouro == "" ? "Sem dados" : data.logradouro);
+      document.getElementById("bairro").innerHTML +=
+        " " + (data.bairro == "" ? "Sem dados" : data.bairro);
+      document.getElementById("cidade").innerHTML +=
+        " " + (data.localidade == "" ? "Sem dados" : data.localidade);
+      document.getElementById("numero").innerHTML +=
+        " " + (data.complemento == "" ? "Sem dados" : data.complemento);
     })
     .catch((error) => {
       alert("Erro interno, tente novamente mais tarde.");
