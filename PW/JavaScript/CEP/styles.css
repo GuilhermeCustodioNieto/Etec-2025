@@ -51,12 +51,109 @@ main {
   background-color: #D5D5D5;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 33.854vw;
+  height: 85vh;
+  border-radius: 15px;
+  padding-top: 50px;
+  
+}
+
+.form_container div{
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.form_container div span {
+  font-size: 50px;
+  color: #2C698D;
+}
+
+.form_container div input {
+  border-radius: 15px;
+  width: 22vw;
+  height: 7vh;
+   text-align: center;
+  line-height: 5vh;
+  background-color: #D9D9D9;
+  border-color: rgba(95, 168, 211, 0.5);
+  border-style: solid;
+  border-width: 1.5px;
+  padding-top: 1vh;
+  box-sizing: border-box;
+  font-size: 35px;
+  font-weight: bold;
+  margin-top: 5%;
+}
+
+.form_container div input::placeholder {
+  color: #000;
   
+  font-weight: bold;
+  height: 100%;
+}
+
+.form_container div input:focus {
+  outline: none;
+  border-color: #5FA8D3;
+  box-shadow: 0px 0px 10px rgba(95, 168, 211, 0.5);
+}
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  
+  gap: 40px;
+  height: 100%;
+}
+
+.form_container button {
+  background-color: #5FA8D3;
+  width: 15vw;
+  height: 7vh;
+  border: none;
+  border-radius: 15px;
+  border: 1px solid #5FA8D3;
+  margin-top: 20%;
+
+}
+
+.form_container button p {
+  font-size: 30px;
+  font-weight: bold;
+  color: #DEF1FF;
+  filter: drop-shadow(0px 6px 30px #ffffff);
 }
 
 .span_container {
   background-color: #1B4965;
   width: 100%;
+}
+
+.main_infos {
+  font-size: 30px;
+  width: 30.312vw;
+  height: 28vh;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/* outro lado */
+
+.span_container { 
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
 }
