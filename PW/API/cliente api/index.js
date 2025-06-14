@@ -1,47 +1,35 @@
-const express = require('express')
-const env = require('dotenv')
+const express = require("express");
+const env = require("dotenv");
+const ClienteRoutes = require("./src/router/router_cliente.js");
+const ProdutoRoutes = require("./src/router/router_produto.js");
 
-const {buscarClientes, buscarCliente} = require('./src/DAO/cliente/buscar_cliente.js')
-const {incluirCliente} = require('./src/DAO/cliente/inserir_cliente.js')
-const {conexao, closeConexao, testarConexao} = require('./src/DAO/conexao.js')
+const { incluirCliente } = require("./src/DAO/cliente/inserir_cliente.js");
+const {
+  conexao,
+  closeConexao,
+  testarConexao,
+} = require("./src/DAO/conexao.js");
+const PedidoRoutes = require("./src/router/router_pedido.js");
 
-const app = express()
-env.config()
+const app = express();
+env.config();
 
 app.use(
-    express.urlencoded({
-        extended: true
-    })
-  )
-  
-  app.use(express.json())
-  
+  express.urlencoded({
+    extended: true,
+  })
+);
 
+app.use(express.json());
 
-app.get('/firma/1.0.1/', (req, res) => {
-  res.send('Hello World')
-})
+app.get("/firma/1.0.1/", (req, res) => {
+  res.send("Hello World");
+});
 
-app.get('/firma/1.0.1/clientes', async (req, res) =>{
-    let clientes = await buscarClientes()
-    res.json(clientes)
-})
-
-app.get('/firma/1.0.1/cliente/:codigo', async (req, res) =>{
-    let codigo = parseInt( req.params.codigo)
-    let cliente = await buscarCliente(codigo)
-    res.json(cliente)
-})
-
-app.post('/firma/1.0.1/cliente', async (req, res) =>{
-    let {codigo, nome, limite, telefone, id_endereco, id_status} = req.body
-    const infos = [codigo, nome, telefone, limite, id_endereco, id_status]
-    let result = await incluirCliente(infos)
-    res.json(result)
-})
-
+app.use("/firma/1.0.1/", ClienteRoutes);
+app.use("/firma/1.0.1/", PedidoRoutes);
 
 app.listen(process.env.PORTA, () => {
-    console.log(`Operando na porta ${process.env.PORTA}`), 
-    testarConexao(conexao())
-})
+  console.log(`Operando na porta ${process.env.PORTA}`),
+    testarConexao(conexao());
+});
