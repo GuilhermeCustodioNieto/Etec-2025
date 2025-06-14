@@ -26,8 +26,9 @@ app.get("/firma/1.0.1/", (req, res) => {
   res.send("Hello World");
 });
 
-app.use("/firma/1.0.1/", ClienteRoutes);
-app.use("/firma/1.0.1/", PedidoRoutes);
+app.use("/firma/1.0.1/cliente", ClienteRoutes);
+app.use("/firma/1.0.1/pedido", PedidoRoutes);
+app.use("/firma/1.0.1/produto", ProdutoRoutes);
 
 app.listen(process.env.PORTA, () => {
   console.log(`Operando na porta ${process.env.PORTA}`),

@@ -3,29 +3,34 @@ const {
   buscarCliente,
   buscarClientes,
 } = require("../DAO/cliente/buscar_cliente.js");
-const incluirCliente = require("../DAO/cliente/inserir_cliente.js");
+const { incluirCliente } = require("../DAO/cliente/inserir_cliente.js");
+const {
+  atualizarCliente,
+  atualizarParcialCliente,
+} = require("../DAO/cliente/atualizar_cliente.js");
+const deletarCliente = require("../DAO/cliente/deletar_cliente.js");
 
 const ClienteRoutes = e.Router();
 
-ClienteRoutes.get("/clientes", async (req, res) => {
+ClienteRoutes.get("/", async (req, res) => {
   let clientes = await buscarClientes();
   res.json(clientes);
 });
 
-ClienteRoutes.get("/cliente/:codigo", async (req, res) => {
+ClienteRoutes.get("/:codigo", async (req, res) => {
   let codigo = parseInt(req.params.codigo);
   let cliente = await buscarCliente(codigo);
   res.json(cliente);
 });
 
-ClienteRoutes.post("/cliente", async (req, res) => {
+ClienteRoutes.post("/", async (req, res) => {
   let { codigo, nome, limite, telefone, id_endereco, id_status } = req.body;
   const infos = [codigo, nome, telefone, limite, id_endereco, id_status];
   let result = await incluirCliente(infos);
   res.json(result);
 });
 
-ClienteRoutes.put("/cliente", async (req, res) => {
+ClienteRoutes.put("/", async (req, res) => {
   let { codigo, nome, limite, telefone, id_endereco, id_status } = req.body;
   const infos = {
     codigo,
@@ -39,7 +44,7 @@ ClienteRoutes.put("/cliente", async (req, res) => {
   res.json(result);
 });
 
-ClienteRoutes.patch("/clientes/:codigo", async (req, res) => {
+ClienteRoutes.patch("/:codigo", async (req, res) => {
   const { codigo } = req.params;
   const camposParaAtualizar = req.body;
 
@@ -54,7 +59,7 @@ ClienteRoutes.patch("/clientes/:codigo", async (req, res) => {
   }
 });
 
-ClienteRoutes.delete("/clientes/:codigo", async (req, res) => {
+ClienteRoutes.delete("/:codigo", async (req, res) => {
   const { codigo } = req.params;
 
   try {

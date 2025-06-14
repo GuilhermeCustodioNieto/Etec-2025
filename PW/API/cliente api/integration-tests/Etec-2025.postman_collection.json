@@ -1,0 +1,498 @@
+{
+	"info": {
+		"_postman_id": "ccfc17ce-a9b8-48e2-8909-6d286b2db1a6",
+		"name": "Etec-2025",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34636698"
+	},
+	"item": [
+		{
+			"name": "Product-API",
+			"item": [
+				{
+					"name": "Cliente",
+					"item": [
+						{
+							"name": "GET",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Product-API\n}}cliente/",
+									"host": [
+										"{{Product-API\n}}cliente"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET BY ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Product-API\n}}cliente/1",
+									"host": [
+										"{{Product-API\n}}cliente"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"codigo\": 123,\r\n  \"nome\": \"João da Silva\",\r\n  \"telefone\": \"11999990000\",\r\n  \"limite\": 1500.00,\r\n  \"id_endereco\": 1,\r\n  \"id_status\": 1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Product-API\n}}cliente/",
+									"host": [
+										"{{Product-API\n}}cliente"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"codigo\": 123,\r\n  \"nome\": \"João Atualizado\",\r\n  \"telefone\": \"11999991111\",\r\n  \"limite\": 2000.00,\r\n  \"id_endereco\": 2,\r\n  \"id_status\": 2\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Product-API\n}}cliente/",
+									"host": [
+										"{{Product-API\n}}cliente"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PATCH",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"telefone\": \"11988887777\",\r\n  \"limite\": 3000.00\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Product-API\n}}cliente/123",
+									"host": [
+										"{{Product-API\n}}cliente"
+									],
+									"path": [
+										"123"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"telefone\": \"11988887777\",\r\n  \"limite\": 3000.00\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Product-API\n}}cliente/123",
+									"host": [
+										"{{Product-API\n}}cliente"
+									],
+									"path": [
+										"123"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Produto",
+					"item": [
+						{
+							"name": "GET",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Product-API\n}}produto/",
+									"host": [
+										"{{Product-API\n}}produto"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET BY ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Product-API\n}}produto/1",
+									"host": [
+										"{{Product-API\n}}produto"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"codigo\": 101,\r\n  \"nome\": \"Monitor Gamer 24''\",\r\n  \"id_categoria\": 3,\r\n  \"preco\": 999.99\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Product-API\n}}produto/",
+									"host": [
+										"{{Product-API\n}}produto"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"codigo\": 101,\r\n  \"nome\": \"Monitor Gamer 27'' 144Hz\",\r\n  \"id_categoria\": 3,\r\n  \"preco\": 1299.99\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Product-API\n}}produto/",
+									"host": [
+										"{{Product-API\n}}produto"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PATCH",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"preco\": 1199.99\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Product-API\n}}produto/",
+									"host": [
+										"{{Product-API\n}}produto"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"telefone\": \"11988887777\",\r\n  \"limite\": 3000.00\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Product-API\n}}produto/101",
+									"host": [
+										"{{Product-API\n}}produto"
+									],
+									"path": [
+										"101"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pedido",
+					"item": [
+						{
+							"name": "GET",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Product-API\n}}pedido/",
+									"host": [
+										"{{Product-API\n}}pedido"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET BY ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Product-API\n}}pedido/1",
+									"host": [
+										"{{Product-API\n}}pedido"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"numero\": 1001,\r\n  \"data_elaboracao\": \"2025-06-14\",\r\n  \"cliente_id\": 1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Product-API\n}}pedido/",
+									"host": [
+										"{{Product-API\n}}pedido"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"numero\": 1001,\r\n  \"data_elaboracao\": \"2025-06-15\",\r\n  \"cliente_id\": 2\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Product-API\n}}pedido/",
+									"host": [
+										"{{Product-API\n}}pedido"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PATCH",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"cliente_id\": 3\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Product-API\n}}pedido/1001",
+									"host": [
+										"{{Product-API\n}}pedido"
+									],
+									"path": [
+										"1001"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"telefone\": \"11988887777\",\r\n  \"limite\": 3000.00\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Product-API\n}}pedido/1001",
+									"host": [
+										"{{Product-API\n}}pedido"
+									],
+									"path": [
+										"1001"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

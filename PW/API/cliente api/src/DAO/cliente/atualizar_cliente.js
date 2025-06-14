@@ -20,8 +20,6 @@ async function atualizarCliente(infos) {
   }
 }
 
-module.exports = atualizarCliente;
-
 async function atualizarParcialCliente(codigo, campos) {
   if (!codigo || !campos || Object.keys(campos).length === 0) {
     throw new Error("Código e campos obrigatórios para PATCH.");
@@ -43,5 +41,4 @@ async function atualizarParcialCliente(codigo, campos) {
     return err.message;
   }
 }
-
-module.exports = { atualizarParcialCliente };
+module.exports = { atualizarCliente, atualizarParcialCliente };

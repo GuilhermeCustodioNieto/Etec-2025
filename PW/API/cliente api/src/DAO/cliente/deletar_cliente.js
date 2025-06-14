@@ -5,7 +5,7 @@ async function deletarCliente(id) {
     throw new Error("Código do cliente é obrigatório para deletar.");
   }
 
-  const sql = `DELETE FROM tbl_cliente WHERE id = ?`;
+  const sql = `DELETE FROM tbl_cliente WHERE codigo = ?`;
   const conn = await conexao();
 
   try {
@@ -17,4 +17,4 @@ async function deletarCliente(id) {
   }
 }
 
-export default deletarCliente;
+module.exports = deletarCliente;

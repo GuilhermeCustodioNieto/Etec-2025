@@ -41,6 +41,4 @@ async function atualizarParcialPedido(numero, campos) {
   }
 }
 
-module.exports = { atualizarParcialPedido };
-
-module.exports = atualizarPedido;
+module.exports = { atualizarParcialPedido, atualizarPedido };
