@@ -18,8 +18,6 @@ async function atualizarProduto(infos) {
   }
 }
 
-module.exports = atualizarProduto;
-
 async function atualizarParcialProduto(codigo, campos) {
   if (!codigo || !campos || Object.keys(campos).length === 0) {
     throw new Error("Código e campos obrigatórios para PATCH.");
@@ -42,4 +40,4 @@ async function atualizarParcialProduto(codigo, campos) {
   }
 }
 
-module.exports = { atualizarParcialProduto };
+module.exports = { atualizarProduto, atualizarParcialProduto };
