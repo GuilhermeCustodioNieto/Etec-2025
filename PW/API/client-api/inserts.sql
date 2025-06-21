@@ -50,7 +50,7 @@ INSERT INTO tbl_cliente (id, telefone, nome, limite, id_endereco, id_status) val
 (9, '81977778888', 'Daniel Ribeiro', 950.00, 9, 2),
 (10, '91966667777', 'Larissa Martins', 1100.00, 10, 1);
 
-INSERT INTO tbl_pedido (numero, data_elaboracao, cliente_id) VALUES
+INSERT INTO tbl_pedido (id, data_elaboracao, cliente_id) VALUES
 (1, '2025-01-05', 1),
 (2, '2025-01-06', 2),
 (3, '2025-01-07', 3),
@@ -84,12 +84,12 @@ INSERT INTO tbl_pedido (numero, data_elaboracao, cliente_id) VALUES
 
 INSERT INTO tbl_itempedido (id, id_pedido, id_produto, qnt) values
 (1, 1, 1, 2),
-(2, 1, 2, 1),
+(2, 1, 2, 1),1``````````````````````````
 (3, 2, 3, 3),
 (4, 2, 4, 2),
 (5, 3, 5, 4),
 (6, 3, 1, 1),
-(7, 4, 6, 2),
+(7, 4, 6, 2	
 (8, 4, 7, 5),
 (9, 5, 8, 3),
 (10, 5, 9, 2),
