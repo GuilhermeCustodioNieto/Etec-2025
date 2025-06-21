@@ -35,7 +35,8 @@ export class EnderecoService {
   async update(id: number, updateEnderecoDto: UpdateEnderecoDto) {
     const endereco = await this.findOne(id);
 
-    return this.repository.merge(endereco, updateEnderecoDto);
+    this.repository.merge(endereco, updateEnderecoDto);
+    return this.repository.save(endereco);
   }
 
   async remove(id: number) {

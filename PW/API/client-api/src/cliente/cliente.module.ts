@@ -10,5 +10,6 @@ import { EnderecoModule } from 'src/endereco/endereco.module';
   imports: [TypeOrmModule.forFeature([Cliente]), StatusModule, EnderecoModule],
   controllers: [ClienteController],
   providers: [ClienteService],
+  exports: [ClienteService],
 })
 export class ClienteModule {}

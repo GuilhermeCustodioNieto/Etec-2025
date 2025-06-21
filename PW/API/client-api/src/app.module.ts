@@ -9,6 +9,7 @@ import { ProdutosModule } from './produtos/produtos.module';
 import { StatusModule } from './status/status.module';
 import { EnderecoModule } from './endereco/endereco.module';
 import { ClienteModule } from './cliente/cliente.module';
+import { PedidoModule } from './pedido/pedido.module';
 
 @Module({
   imports: [
@@ -50,6 +51,10 @@ import { ClienteModule } from './cliente/cliente.module';
             path: '/',
             module: ClienteModule,
           },
+          {
+            path: '/',
+            module: PedidoModule,
+          },
         ],
       },
     ]),
@@ -59,6 +64,7 @@ import { ClienteModule } from './cliente/cliente.module';
     StatusModule,
     EnderecoModule,
     ClienteModule,
+    PedidoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

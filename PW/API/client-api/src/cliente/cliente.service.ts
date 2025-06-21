@@ -64,7 +64,8 @@ export class ClienteService {
       throw new Error(`Cliente with id ${id} not found`);
     }
 
-    return this.repository.merge(cliente, updateClienteDto);
+    this.repository.merge(cliente, updateClienteDto);
+    return this.repository.save(cliente);
   }
 
   async remove(id: number) {
