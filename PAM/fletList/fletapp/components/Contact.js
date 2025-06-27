@@ -9,11 +9,11 @@ function Contact() {
       ></Image>
       <View style={styles.contactinfos}>
         <Text style={styles.subtitle}>Name</Text>
-        <Text>Message</Text>
+        <Text style={styles.textPreview}>Message</Text>
       </View>
-      <View>
-        <Text>15:00</Text>
-        <Text>1</Text>
+      <View style={styles.messageInfos}>
+        <Text style={styles.time}>15:00</Text>
+        <Text style={styles.amountMessages}>1</Text>
       </View>
     </View>
   );
@@ -36,7 +36,7 @@ const styles = {
     marginRight: 10,
   },
   contactinfos: {
-    width: "70%",
+    width: "100%",
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
@@ -46,6 +46,39 @@ const styles = {
   subtitle: {
     fontSize: 17,
     fontWeight: "bold",
+  },
+
+  textPreview: {
+    fontSize: 15,
+    color: "#888",
+    marginTop: 5,
+  },
+
+  time: {
+    fontSize: 14,
+    color: "#28cb68",
+    fontWeight: "600",
+
+    marginBottom: 5,
+  },
+
+  messageInfos: {
+    flex: 0.5,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  amountMessages: {
+    fontSize: 14,
+    fontWeight: "600",
+    backgroundColor: "#28cb68",
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    textAlign: "center",
+    textAlignVertical: "center",
+    lineHeight: 20,
+    color: "#fff",
   },
 };
 
