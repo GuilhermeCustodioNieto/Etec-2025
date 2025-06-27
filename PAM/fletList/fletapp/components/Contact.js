@@ -1,19 +1,16 @@
 import { View, Image, Text } from "react-native";
 
-function Contact() {
+function Contact({ name, preview, time, unreadMessages, image }) {
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={require("../assets/user_icon.png")}
-      ></Image>
+      <Image style={styles.image} source={image}></Image>
       <View style={styles.contactinfos}>
-        <Text style={styles.subtitle}>Name</Text>
-        <Text style={styles.textPreview}>Message</Text>
+        <Text style={styles.subtitle}>{name}</Text>
+        <Text style={styles.textPreview}>{preview}</Text>
       </View>
       <View style={styles.messageInfos}>
-        <Text style={styles.time}>15:00</Text>
-        <Text style={styles.amountMessages}>1</Text>
+        <Text style={styles.time}>{time}</Text>
+        <Text style={styles.amountMessages}>{unreadMessages}</Text>
       </View>
     </View>
   );
@@ -63,7 +60,7 @@ const styles = {
   },
 
   messageInfos: {
-    flex: 0.5,
+    flex: 0.2,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
