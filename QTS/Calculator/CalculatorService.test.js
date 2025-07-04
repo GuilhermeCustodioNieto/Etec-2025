@@ -13,7 +13,7 @@ test("Calculator Service must subtract two numbers", () => {
   expect(result).toBe(0);
 });
 
-test("Calculator Service must multiply two numbers", () => {
+test("Calculator Service must multiply two numbers a", () => {
   const calculatorService = new CalculatorService();
   const result = calculatorService.calculate(3, 3, "X");
   expect(result).toBe(9);
