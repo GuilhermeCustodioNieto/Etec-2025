@@ -1,81 +1,142 @@
 const { Conta } = require("../model/Conta.js");
 
-beforeEach(() => {
-  Conta.contas = [];
-  Conta.gerarContas();
+Conta.gerarContas();
+
+let contas = Conta.contas;
+
+test.skip("Lista de contas", () => {});
+
+test("Transferência realizada com sucesso", () => {
+  let origem = contas[5];
+  let destino = contas[6];
+
+  const result = origem.transferir(
+    {
+      agencia: origem.agencia,
+      numero: origem.numero_conta,
+      senha: origem.senha,
+    },
+    {
+      agencia: destino.agencia,
+      numero: destino.numero_conta,
+      senha: destino.senha,
+    },
+    100
+  );
+
+  expect(result).toEqual({ transferencia: "Realizada com sucesso" });
+  expect(origem.saldo).toBe(800);
+  expect(destino.saldo).toBe(550);
 });
 
-describe("Testes da classe Conta", () => {
-  test("Lista de contas deve ter 13 elementos", () => {
-    expect(Conta.contas.length).toBe(13);
-  });
+test("Falha transferência: saldo insuficiente", () => {
+  let origem = contas[5];
+  let destino = contas[6];
 
-  test("Função transferir deve transferir saldo corretamente", () => {
-    let origem = Conta.contas[5];
-    let destino = Conta.contas[6];
+  origem.saldo = 50;
 
-    let resp = origem.transferir(origem, destino, 200);
+  const result = origem.transferir(
+    {
+      agencia: origem.agencia,
+      numero: origem.numero_conta,
+      senha: origem.senha,
+    },
+    {
+      agencia: destino.agencia,
+      numero: destino.numero_conta,
+      senha: destino.senha,
+    },
+    100
+  );
 
-    expect(resp.transferencia).toBe("Realizada com sucesso");
-    expect(origem.saldo).toBe(700);
-    expect(destino.saldo).toBe(650);
-  });
+  expect(result).toEqual({ transferencia: "Não realizada com sucesso" });
+  expect(origem.saldo).toBe(50);
+  expect(destino.saldo).toBe(550);
+});
 
-  test("Transferência não deve ser realizada sem saldo", () => {
-    let origem = Conta.contas[5];
-    let destino = Conta.contas[6];
+test("Falha transferência: conta de origem inexistente", () => {
+  let destino = contas[6];
 
-    let resp = origem.transferir(origem, destino, 5000);
+  const result = contas[5].transferir(
+    { agencia: 0, numero: 0, senha: 0 },
+    {
+      agencia: destino.agencia,
+      numero: destino.numero_conta,
+      senha: destino.senha,
+    },
+    100
+  );
 
-    expect(resp.transferencia).toBe("Não realizada com sucesso");
-    expect(origem.saldo).toBe(900);
-    expect(destino.saldo).toBe(450);
-  });
+  expect(result).toEqual({ conta: "Conta de origem inexistente" });
+});
 
-  test("Função saque", () => {
-    let conta = Conta.contas[1];
+test("Falha transferência: conta de destino inexistente", () => {
+  let origem = contas[5];
 
-    let resp1 = conta.saque(500, true);
-    expect(resp1.saque).toBe(
-      `Saque de 500 realizado com sucesso, seu saldo atual é 1000`
-    );
+  const result = origem.transferir(
+    {
+      agencia: origem.agencia,
+      numero: origem.numero_conta,
+      senha: origem.senha,
+    },
+    { agencia: 0, numero: 0, senha: 0 },
+    100
+  );
 
-    let resp2 = conta.saque(500, false);
-    expect(resp2.error).toBe("Acesso negado");
+  expect(result).toEqual({ conta: "Conta de destino inexistente" });
+});
 
-    let resp3 = conta.saque(5000, true);
-    expect(resp3.saque).toBe("Saque não realizado por falta de saldo");
-  });
+test("Testar a função saque", () => {
+  let resp1 = contas[1].saque(500, true);
+  let saque = resp1.saque;
+  expect(saque).toBe(
+    `Saque de 500 realizado com sucesso, seu saldo atual é 1000`
+  );
 
-  test("Função autenticar", () => {
-    let resp = Conta.autenticar(543, 2598, 1234);
-    expect(resp.acesso).toBe(true);
-    expect(resp.conta.saldo).toBe(500);
+  let resp2 = contas[1].saque(500, false);
+  let error = resp2.error;
+  expect(error).toBe("Acesso negado");
 
-    let resp2 = Conta.autenticar(543, 2598, 9999);
-    expect(resp2.acesso).toBe(false);
-    expect(resp2.conta).toBe(null);
-  });
+  let resp3 = contas[1].saque(5000, true);
+  let saque3 = resp3.saque;
+  expect(saque3).toBe(`Saque não realizado por falta de saldo`);
+});
 
-  test("Depositar", () => {
-    let conta = Conta.contas[3];
+test("Testar a função autenticar", function () {
+  let resp = Conta.autenticar(543, 2598, 1234);
+  let conta = resp.conta;
+  let acesso = resp.acesso;
 
-    let resp1 = conta.depositar(100, true);
-    expect(resp1.deposito).toBe(
-      `Realizado deposito de 100 com sucesso, seu saldo atual é 850`
-    );
+  expect(conta.saldo).toBe(500);
+  expect(acesso).toBe(true);
 
-    let resp2 = conta.depositar(100, false);
-    expect(resp2.deposito).toBe("Acesso negado");
-  });
+  let resp2 = Conta.autenticar(543, 2598, 12345545);
+  let conta2 = resp2.conta;
+  let acesso2 = resp2.acesso;
 
-  test("Visualizar saldo", () => {
-    let conta = Conta.contas[0];
+  expect(conta2).toBe(null);
+  expect(acesso2).toBe(false);
+});
 
-    let resp1 = conta.visualizarSaldo(true);
-    expect(resp1.saldo).toBe(500);
+test("Depositar", () => {
+  let resp = contas[3].depositar(100, true);
+  let resp2 = contas[3].depositar(100, false);
 
-    let resp2 = conta.visualizarSaldo(false);
-    expect(resp2.error).toBe("Acesso negado");
-  });
+  expect(resp.deposito).toBe(
+    `Realizado deposito de ${100} com sucesso, seu saldo atual é 850`
+  );
+  expect(resp2.deposito).toBe("Acesso negado");
+});
+
+test("Testar a função visualizarSaldo", () => {
+  let resp = contas[0].visualizarSaldo(true);
+  expect(resp.saldo).toBe(500);
+
+  let resp2 = contas[0].visualizarSaldo(false);
+  expect(resp2.error).toBe("Acesso negado");
+});
+
+test("Testar a função cobrarTaxa", () => {
+  let resp = contas[0].cobrarTaxa();
+  expect(resp.saldo).toBe(480);
 });

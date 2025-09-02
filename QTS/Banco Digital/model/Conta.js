@@ -2,7 +2,6 @@ const { Titular } = require("./Titular.js");
 
 class Conta {
   static contas = [];
-
   constructor(saldo, senha, agencia, numero_conta, titular) {
     this.saldo = saldo;
     this.senha = senha;
@@ -68,52 +67,60 @@ class Conta {
   }
 
   transferir(origem, destino, valor) {
-    // validar a origem
-    let resp = Conta.autenticar(origem.agencia, origem.numero, origem.senha);
-    let contaOrigem = resp.conta;
+    const respOrigem = Conta.autenticar(
+      origem.agencia,
+      origem.numero,
+      origem.senha
+    );
+    const contaOrigem = respOrigem.conta;
+    if (!contaOrigem) return { conta: "Conta de origem inexistente" };
 
-    if (contaOrigem == null) {
-      return { conta: "Conta de origem inexistente" };
-    }
-
-    // validar o destino
-    let resp2 = Conta.autenticar(
+    const respDestino = Conta.autenticar(
       destino.agencia,
       destino.numero,
       destino.senha
     );
-    let contaDestino = resp2.conta;
-    if (contaDestino == null) {
-      return { conta: "Conta de destino inexistente" };
-    }
+    const contaDestino = respDestino.conta;
+    if (!contaDestino) return { conta: "Conta de destino inexistente" };
 
-    let resp3 = origem.saque(valor, true);
-    if (`Saque não realizado por falta de saldo` != resp3.saque) {
-      destino.depositar(valor, true);
-      return { transferencia: "Realizada com sucesso" };
-    } else {
+    const isPoupanca = contaOrigem.constructor.name === "ContaPoupanca";
+
+    const saqueResp = contaOrigem.saque(valor, !isPoupanca);
+
+    if (!saqueResp.saque || saqueResp.saque.includes("Saque não realizado")) {
       return { transferencia: "Não realizada com sucesso" };
     }
+
+    if (isPoupanca) {
+      contaOrigem.saldo -= 100;
+    }
+
+    contaDestino.depositar(valor, true);
+
+    return { transferencia: "Realizada com sucesso" };
   }
 
-  cobrarTaxar() {}
+  cobrarTaxa() {
+    this.saldo = this.saldo - 20;
+    return this;
+  }
 
   static gerarContas() {
     Titular.gerarTitulares();
     let titulares = Titular.titulares;
-    this.contas.push(new Conta(500, 1234, 543, 2598, titulares[0]));
-    this.contas.push(new Conta(1500, 5678, 789, 78943, titulares[1]));
-    this.contas.push(new Conta(2000, 45678, 7894, 235899, titulares[2]));
-    this.contas.push(new Conta(750, 5678, 987, 1234, titulares[3]));
-    this.contas.push(new Conta(300, 2345, 456, 7890, titulares[4]));
-    this.contas.push(new Conta(900, 6789, 321, 4567, titulares[5]));
-    this.contas.push(new Conta(450, 3456, 654, 8901, titulares[6]));
-    this.contas.push(new Conta(600, 4567, 789, 2345, titulares[7]));
-    this.contas.push(new Conta(850, 7890, 123, 6789, titulares[8]));
-    this.contas.push(new Conta(400, 8901, 234, 3456, titulares[9]));
-    this.contas.push(new Conta(700, 9012, 345, 4568, titulares[10]));
-    this.contas.push(new Conta(550, 123, 456, 5679, titulares[11]));
-    this.contas.push(new Conta(950, 1239, 567, 6780, titulares[12]));
+    new Conta(500, 1234, 543, 2598, titulares[0]);
+    new Conta(1500, 5678, 789, 78943, titulares[1]);
+    new Conta(2000, 45678, 7894, 235899, titulares[2]);
+    new Conta(750, 5678, 987, 1234, titulares[3]);
+    new Conta(300, 2345, 456, 7890, titulares[4]);
+    new Conta(900, 6789, 321, 4567, titulares[5]);
+    new Conta(450, 3456, 654, 8901, titulares[6]);
+    new Conta(600, 4567, 789, 2345, titulares[7]);
+    new Conta(850, 7890, 123, 6789, titulares[8]);
+    new Conta(400, 8901, 234, 3456, titulares[9]);
+    new Conta(700, 9012, 345, 4568, titulares[10]);
+    new Conta(550, 123, 456, 5679, titulares[11]);
+    new Conta(950, 1239, 567, 6780, titulares[12]);
   }
 }
 

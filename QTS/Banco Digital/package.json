@@ -1,12 +1,11 @@
 {
-  "name": "banco_etec",
+  "name": "Banco Digital",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./index.js",
     "test": "jest --coverage"
   },
-  "type": "commonjs",
   "keywords": [],
   "author": "",
   "license": "ISC",
