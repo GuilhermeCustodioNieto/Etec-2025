@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Keyboard } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Keyboard, ScrollView } from 'react-native';
 import axios from 'axios';
 
 export default function App() {
   const [cep, setCep] = useState('');
+  const [nome, setNome] = useState('');
+  const [nascimento, setNascimento] = useState('');
+  const [estadoCivil, setEstadoCivil] = useState('');
   const [endereco, setEndereco] = useState(null);
+
   const [erro, setErro] = useState('');
 
   const buscarEndereco = async () => {
@@ -32,8 +36,33 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.titCep}>Exemplo com CEP</Text>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.titCep}>Via CEP</Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Nome"
+        value={nome}
+        onChangeText={setNome}
+        placeholderTextColor="#fff"
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Nascimento (dd/mm/aaaa)"
+        value={nascimento}
+        onChangeText={setNascimento}
+        keyboardType="numeric"
+        placeholderTextColor="#fff"
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Estado Civil"
+        value={estadoCivil}
+        onChangeText={setEstadoCivil}
+        placeholderTextColor="#fff"
+      />
 
       <TextInput
         style={styles.input}
@@ -52,27 +81,30 @@ export default function App() {
       {erro && <Text style={styles.error}>{erro}</Text>}
 
       {endereco && (
-        <View style={styles.result}>
-          <Text style={styles.texts}>Logradouro: {endereco.logradouro}</Text>
-          <Text style={styles.texts}>Bairro: {endereco.bairro}</Text>
-          <Text style={styles.texts}>Cidade: {endereco.localidade}</Text>
-          <Text style={styles.texts}>UF: {endereco.uf}</Text>
+        <View>
+          <Text style={[styles.texts, styles.result]}>Nome: {nome}</Text>
+          <Text style={[styles.texts, styles.result]}>Nascimento: {nascimento}</Text>
+          <Text style={[styles.texts, styles.result]}>Estado Civil: {estadoCivil}</Text>
+          <Text style={[styles.texts, styles.result]}>Logradouro: {endereco.logradouro}</Text>
+          <Text style={[styles.texts, styles.result]}>Bairro: {endereco.bairro}</Text>
+          <Text style={[styles.texts, styles.result]}>Cidade: {endereco.localidade}</Text>
+          <Text style={[styles.texts, styles.result]}>UF: {endereco.uf}</Text>
         </View>
       )}
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   titCep: {
     textAlign: 'center',
-    fontSize: 50,
+    fontSize: 35,
     fontWeight: '700',
     color: '#7F00FF',
     margin: 40,
   },
   container: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
@@ -81,7 +113,7 @@ const styles = StyleSheet.create({
   input: {
     width: '80%',
     height: 40,
-    borderColor: '#7F00FF',
+    borderColor: '#FFF',
     borderWidth: 1,
     marginBottom: 20,
     paddingLeft: 10,
@@ -101,7 +133,7 @@ const styles = StyleSheet.create({
   },
   texts: {
     color: '#fff',
-    fontSize: 25,
+    fontSize: 18,
   },
   button: {
     backgroundColor: '#7F00FF',
