@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Keyboard, ScrollView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Text, TextInput, StyleSheet, Keyboard, ScrollView } from 'react-native';
 import axios from 'axios';
 
 export default function App() {
@@ -7,32 +7,60 @@ export default function App() {
   const [nome, setNome] = useState('');
   const [nascimento, setNascimento] = useState('');
   const [estadoCivil, setEstadoCivil] = useState('');
-  const [endereco, setEndereco] = useState(null);
+
+  // Endereço em campos separados para edição
+  const [logradouro, setLogradouro] = useState('');
+  const [bairro, setBairro] = useState('');
+  const [cidade, setCidade] = useState('');
+  const [uf, setUf] = useState('');
 
   const [erro, setErro] = useState('');
 
-  const buscarEndereco = async () => {
-    if (cep.length !== 9) {
-      setErro('CEP inválido. Digite exatamente 9 números.');
-      setEndereco(null);
-      return;
-    }
+  // dispara automaticamente quando o CEP muda
+  useEffect(() => {
+    const cepLimpo = cep.replace(/\D/g, '');
 
+    if (cepLimpo.length === 8) {
+      buscarEndereco(cepLimpo);
+    }
+  }, [cep]);
+
+  const buscarEndereco = async (cepLimpo) => {
     try {
       Keyboard.dismiss();
-      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+      const response = await axios.get(`https://viacep.com.br/ws/${cepLimpo}/json/`);
 
       if (response.data.erro) {
         setErro('CEP não encontrado.');
-        setEndereco(null);
+        setLogradouro('');
+        setBairro('');
+        setCidade('');
+        setUf('');
       } else {
-        setEndereco(response.data);
         setErro('');
+        // Preenche os campos com os dados da API
+        setLogradouro(response.data.logradouro || '');
+        setBairro(response.data.bairro || '');
+        setCidade(response.data.localidade || '');
+        setUf(response.data.uf || '');
       }
     } catch (error) {
       setErro('Ocorreu um erro na consulta. Tente novamente.');
-      setEndereco(null);
     }
+  };
+
+  // máscara automática para data de nascimento
+  const handleNascimentoChange = (text) => {
+    let value = text.replace(/\D/g, ''); // só números
+
+    if (value.length > 2) {
+      value = value.slice(0, 2) + '/' + value.slice(2);
+    }
+    if (value.length > 5) {
+      value = value.slice(0, 5) + '/' + value.slice(5, 9);
+    }
+
+    setNascimento(value);
   };
 
   return (
@@ -51,8 +79,9 @@ export default function App() {
         style={styles.input}
         placeholder="Nascimento (dd/mm/aaaa)"
         value={nascimento}
-        onChangeText={setNascimento}
+        onChangeText={handleNascimentoChange}
         keyboardType="numeric"
+        maxLength={10}
         placeholderTextColor="#fff"
       />
 
@@ -74,23 +103,41 @@ export default function App() {
         placeholderTextColor="#fff"
       />
 
-      <TouchableOpacity style={styles.button} onPress={buscarEndereco}>
-        <Text style={styles.buttonText}>Buscar Endereço</Text>
-      </TouchableOpacity>
+      {erro ? <Text style={styles.error}>{erro}</Text> : null}
 
-      {erro && <Text style={styles.error}>{erro}</Text>}
+      {/* Inputs de endereço */}
+      <TextInput
+        style={styles.input}
+        placeholder="Logradouro"
+        value={logradouro}
+        onChangeText={setLogradouro}
+        placeholderTextColor="#fff"
+      />
 
-      {endereco && (
-        <View>
-          <Text style={[styles.texts, styles.result]}>Nome: {nome}</Text>
-          <Text style={[styles.texts, styles.result]}>Nascimento: {nascimento}</Text>
-          <Text style={[styles.texts, styles.result]}>Estado Civil: {estadoCivil}</Text>
-          <Text style={[styles.texts, styles.result]}>Logradouro: {endereco.logradouro}</Text>
-          <Text style={[styles.texts, styles.result]}>Bairro: {endereco.bairro}</Text>
-          <Text style={[styles.texts, styles.result]}>Cidade: {endereco.localidade}</Text>
-          <Text style={[styles.texts, styles.result]}>UF: {endereco.uf}</Text>
-        </View>
-      )}
+      <TextInput
+        style={styles.input}
+        placeholder="Bairro"
+        value={bairro}
+        onChangeText={setBairro}
+        placeholderTextColor="#fff"
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Cidade"
+        value={cidade}
+        onChangeText={setCidade}
+        placeholderTextColor="#fff"
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="UF"
+        value={uf}
+        onChangeText={setUf}
+        placeholderTextColor="#fff"
+        maxLength={2}
+      />
     </ScrollView>
   );
 }
@@ -122,30 +169,5 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     marginTop: 10,
-  },
-  result: {
-    marginTop: 20,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    width: '80%',
-    textAlign: 'left',
-  },
-  texts: {
-    color: '#fff',
-    fontSize: 18,
-  },
-  button: {
-    backgroundColor: '#7F00FF',
-    paddingVertical: 12,
-    paddingHorizontal: 40,
-    borderRadius: 5,
-    marginTop: 20,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
-    textAlign: 'center',
   },
 });
